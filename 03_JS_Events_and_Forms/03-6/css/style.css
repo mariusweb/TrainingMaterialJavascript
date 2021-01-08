@@ -1,0 +1,28 @@
+.body1 {
+  background-image: url("../img/spring.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center top;
+  background-attachment: fixed;
+}
+.body2 {
+  background-image: url("../img/summer.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center top;
+  background-attachment: fixed;
+}
+.body3 {
+  background-image: url("../img/autumn.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center top;
+  background-attachment: fixed;
+}
+.body4 {
+  background-image: url("../img/winter.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center top;
+  background-attachment: fixed;
+}
