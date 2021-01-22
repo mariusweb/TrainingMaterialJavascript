@@ -9,8 +9,17 @@
     let green;
     let red;
     let finalMoney;
-    let moneyTransferGreen = JSON.parse(localStorage.getItem('green')) || [];
-    let moneyTransferRed = JSON.parse(localStorage.getItem('red')) || [];
+    let moneyTransferGreen = JSON.parse(localStorage.getItem('green')) || [0];
+    let moneyTransferRed = JSON.parse(localStorage.getItem('red')) || [0];
+    
+    window.addEventListener('DOMContentLoaded', (e) => {
+        e.preventDefault();
+            localStorage.setItem('red', JSON.stringify(moneyTransferRed));
+            localStorage.setItem('green', JSON.stringify(moneyTransferGreen));
+        
+        showResultValue();
+        
+    });
 
     let addMoneyTransfer = (numberBig, bool) => {
         if(bool == 'true'){
@@ -26,7 +35,7 @@
         }
     }
 
-    let sumOfAllMoney = (moneyGreen) => {
+    function sumOfAllMoney(moneyGreen) {
         return moneyGreen.reduce((a, b) => a + b, 0);
     }
 
@@ -41,7 +50,7 @@
         localStorage.setItem('sort', JSON.stringify(sortedSum));
     }
 
-    let showResultValue = () => {
+    function showResultValue ()  {
         green = JSON.parse(localStorage.getItem('green'));
         red = JSON.parse(localStorage.getItem('red'));
         
@@ -50,22 +59,19 @@
         
         rezultText.innerHTML = newTextRezult;
     }
+    
 
     submitBtn.addEventListener('click', (e) => {
-        
         e.preventDefault();
         number = +document.getElementById("number").value;
-        greenAndRedFilterAndSort(green, red, number);
         selectOptionValue = selectOption.options[selectOption.selectedIndex].value;
         addMoneyTransfer(number, selectOptionValue);
+        greenAndRedFilterAndSort(green, red, number);
         document.getElementById("number").value = "";
         showResultValue();
     });
 
-    window.addEventListener('DOMContentLoaded', (e) => {
-        e.preventDefault();
-        showResultValue();
-    });
+    
     
 }());
 
